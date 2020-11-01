@@ -1,21 +1,22 @@
 #include <iostream>
+#include <string>
 #include <vector>
 
 using namespace std;
 
 vector <int> convertirBinario(vector <char> In);
-bool comprobarCombinacion(vector <char In);
+bool comprobarCombinacion(vector <char> In);
 //int Suma(vector <int> In);
 bool esPrimo(int numero);
 
 int main(){
     vector <char> entrada;
-    char n; 
+    char n;
 
     cout << "Bienvenido!\nContraseña: ('R'/'A')\n";
 
     for (int i = 0; i < 15; i++){
-        
+
         do{
             cin >> n;
             if(n != 'A' && n != 'R'){
@@ -27,21 +28,25 @@ int main(){
     }
 
 
-    /*
-     * if (!comprobarCombinacion(entrada)){
-     *      cout << "Clave Incorecta!\n*se habre la trampa de lagartos*";
-     * }else{
+      if (!comprobarCombinacion(entrada)){
+           cout << "Clave Incorecta!\n*se habre la trampa de lagartos*";
+      }
+      else{
+          cout << "correcto";
+      }
+     /*
+     * else{
      *      vector <int> binario = convertirBinario(entrada);
      *
      *      int x = Suma(binario);
-     */
+
            if (esPrimo(x)){
                cout << "Clave Correcta!\puede pasar";
            }else{
                cout << "Clave Incorecta!\n*se habre la trampa de lagartos*";
            }
-     /* }
-     
+      }
+
      */
 
 
@@ -73,10 +78,16 @@ bool esPrimo( int numero){
     }
 }
 
-bool comprobarCombinacion(vector <char In){
+bool comprobarCombinacion(vector <char> In){
     for (int i = 0; i <5 ; i ++){
-        a = In[i];
-        b = In[i+1];
-        c = In[i+2];
+        string a(1,In[i]);
+        string b(1,In[i+1]);
+        string c(1,In[i+2]);
+        string R = a+b+c;
+        if ((R == "RAR") || (R == "ARA")){
+            return true;
+        }else{
+            return false;
+        }
     }
 }
